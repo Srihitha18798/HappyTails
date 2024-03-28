@@ -15,9 +15,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.happytails.R
 
 @Composable
 fun TopBar(){
@@ -43,20 +45,20 @@ fun TopBar(){
             .fillMaxWidth()
             .padding(0.dp, 24.dp, 36.dp, 0.dp),
             horizontalArrangement = Arrangement.End) {
-            //WigglesThemeSwitch()
+            WigglesThemeSwitch()
         }
     }
 
 }
 
-//@Composable
-//fun WigglesThemeSwitch() {
-//    val icon=if(isSystemInDarkTheme())
-//        painterResource(id = R.drawable.)
-//    else
-//        painterResource(id = R.drawable)
-//
-//    Icon(painter = icon, contentDescription = null,
-//        modifier = Modifier.size(24.dp,24.dp),
-//        )
-//}
+@Composable
+fun WigglesThemeSwitch() {
+    val icon=if(isSystemInDarkTheme())
+        painterResource(id = R.drawable.ic_light_off)
+    else
+        painterResource(id = R.drawable.ic_light_on)
+
+    Icon(painter = icon, contentDescription = null,
+        modifier = Modifier.size(40.dp,40.dp), tint = Color(R.color.text)
+        )
+}
