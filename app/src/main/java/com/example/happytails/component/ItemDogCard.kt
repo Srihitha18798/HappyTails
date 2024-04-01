@@ -2,6 +2,7 @@ package com.example.happytails.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -32,12 +33,13 @@ import com.example.happytails.R
 import com.example.happytails.model.Dog
 
 @Composable
-fun ItemDogCard(dog: Dog) {
+fun ItemDogCard(dog: Dog,onItemClicked:(dog:Dog)->Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .clip(RoundedCornerShape(16.dp)),
+            .clip(RoundedCornerShape(16.dp))
+            .clickable(onClick = {onItemClicked(dog)}),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.onSurface,
         ),

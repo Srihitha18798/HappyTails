@@ -9,12 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.happytails.component.ItemDogCard
 import com.example.happytails.component.TopBar
 import com.example.happytails.model.Dog
 
 @Composable
-fun Home(dogList: List<Dog>) {
+fun Home(navController: NavController,dogList: List<Dog>) {
     LazyColumn(
         modifier = Modifier.background(Color.Gray)
     ) {
@@ -24,7 +25,11 @@ fun Home(dogList: List<Dog>) {
         }
         items(dogList) {
             dogList.forEach {
-                ItemDogCard(dog = it)
+                ItemDogCard(dog = it,
+                    onItemClicked={dog->
+                        navController.navigate("detail/${dog.id}/${dog.name}/${dog.location}")
+                    }
+                    )
             }
 
         }
