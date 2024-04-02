@@ -1,6 +1,7 @@
 package com.example.happytails.component
 
 import androidx.annotation.ColorRes
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,13 +17,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.happytails.R
 
 @Composable
-fun TopBar(){
+fun TopBar(onToggle:()->Unit){
     
     Row(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
@@ -45,20 +47,23 @@ fun TopBar(){
             .fillMaxWidth()
             .padding(0.dp, 24.dp, 36.dp, 0.dp),
             horizontalArrangement = Arrangement.End) {
-            WigglesThemeSwitch()
+            WigglesThemeSwitch(onToggle={onToggle()})
         }
     }
 
 }
 
 @Composable
-fun WigglesThemeSwitch() {
+fun WigglesThemeSwitch(onToggle: () -> Unit) {
     val icon=if(isSystemInDarkTheme())
         painterResource(id = R.drawable.ic_light_off)
     else
         painterResource(id = R.drawable.ic_light_on)
 
     Icon(painter = icon, contentDescription = null,
-        modifier = Modifier.size(40.dp,40.dp), tint = Color(R.color.text)
+        modifier = Modifier
+            .size(40.dp, 40.dp)
+            .clickable(onClick = onToggle)
+        , tint = colorResource(id = R.color.text)
         )
 }

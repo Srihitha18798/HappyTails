@@ -1,9 +1,13 @@
 package com.example.happytails
 
+import android.app.AppComponentFactory
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -17,10 +21,24 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val currentTheme= isSystemInDarkTheme()
+            val toggleTheme:()->Unit={
+                if(currentTheme) setDayTheme() else setDarkTheme()
+            }
             HappyTailsTheme {
-              Main()
+              Surface(color = MaterialTheme.colorScheme.background) {
+                  Main(toggleTheme)
+              }
             }
         }
     }
+    private fun setDayTheme(){
+
+    }
+    private fun setDarkTheme(){
+
+    }
 }
+
+
 
