@@ -38,7 +38,7 @@ fun InfoCard(title:String,value:String){
             Text(text = value,
                 modifier = Modifier.fillMaxWidth(),
                 color = colorResource(id = R.color.text),
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.W600,
                 textAlign = TextAlign.Center
                 )
@@ -48,7 +48,7 @@ fun InfoCard(title:String,value:String){
             Text(text = title,
                 modifier = Modifier.fillMaxWidth(),
                 color = Color.Gray,
-                style = MaterialTheme.typography.displayMedium,
+                style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center
                 )
 

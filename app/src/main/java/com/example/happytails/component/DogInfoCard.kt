@@ -11,11 +11,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -31,7 +33,7 @@ fun DogInfoCard(name:String,gender:String,location:String){
         Column(modifier = Modifier.align(Alignment.CenterVertically)) {
             Text(text = name,
                 modifier = Modifier.padding(0.dp,0.dp,12.dp,0.dp),
-                color = MaterialTheme.colorScheme.surface,
+                color = MaterialTheme.colorScheme.contentColorFor(colorResource(id = R.color.text)),
                 fontWeight = FontWeight.Bold,
                 style = MaterialTheme.typography.headlineMedium
                 )
@@ -46,7 +48,7 @@ fun DogInfoCard(name:String,gender:String,location:String){
                     )
                 Text(text = location,
                     modifier = Modifier.padding(8.dp,12.dp,12.dp,0.dp),
-                    color = MaterialTheme.colorScheme.surface,
+                    color = MaterialTheme.colorScheme.contentColorFor(colorResource(id = R.color.text)),
                     style = MaterialTheme.typography.labelSmall
                     )
             }
@@ -55,8 +57,8 @@ fun DogInfoCard(name:String,gender:String,location:String){
 
             Text(text = "12 mins ago",
                 modifier = Modifier.padding(0.dp,0.dp,12.dp,0.dp),
-                color = MaterialTheme.colorScheme.surface,
-                style = MaterialTheme.typography.displayMedium
+                color = MaterialTheme.colorScheme.contentColorFor(colorResource(id = R.color.text)),
+                style = MaterialTheme.typography.bodySmall
                 )
         }
         Row(

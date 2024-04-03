@@ -73,4 +73,10 @@ dependencies {
 
     implementation ("androidx.navigation:navigation-compose:2.7.0-rc01")
 
+    val appcompat_version = "1.6.1"
+
+    implementation("androidx.appcompat:appcompat:$appcompat_version")
+    // For loading and tinting drawables on older versions of the platform
+    implementation("androidx.appcompat:appcompat-resources:$appcompat_version")
+
 }

@@ -30,7 +30,6 @@ fun Home(navController: NavController,dogList: List<Dog>,toggleTheme:()->Unit) {
             dogList.forEach {
                 ItemDogCard(dog = it,
                     onItemClicked={dog->
-                        Log.d("Details","detail/${dog.id}/${dog.name}/${dog.location}")
                         navController.navigate("detail/${dog.id}/${dog.name}/${dog.location}")
                     }
                     )
